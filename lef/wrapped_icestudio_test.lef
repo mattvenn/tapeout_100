@@ -1,0 +1,220 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO wrapped_icestudio_test
+  CLASS BLOCK ;
+  FOREIGN wrapped_icestudio_test ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 70.000 BY 70.000 ;
+  PIN active
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 66.000 3.140 70.000 4.340 ;
+    END
+  END active
+  PIN io_in[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 66.000 54.140 70.000 55.340 ;
+    END
+  END io_in[0]
+  PIN io_in[1]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 38.590 66.000 39.150 70.000 ;
+    END
+  END io_in[1]
+  PIN io_in[2]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 45.030 0.000 45.590 4.000 ;
+    END
+  END io_in[2]
+  PIN io_in[3]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 64.340 4.000 65.540 ;
+    END
+  END io_in[3]
+  PIN io_in[4]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 22.490 66.000 23.050 70.000 ;
+    END
+  END io_in[4]
+  PIN io_in[5]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT -0.050 0.000 0.510 4.000 ;
+    END
+  END io_in[5]
+  PIN io_in[6]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 67.570 66.000 68.130 70.000 ;
+    END
+  END io_in[6]
+  PIN io_in[7]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 61.130 0.000 61.690 4.000 ;
+    END
+  END io_in[7]
+  PIN io_out[0]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 12.830 0.000 13.390 4.000 ;
+    END
+  END io_out[0]
+  PIN io_out[1]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 13.340 4.000 14.540 ;
+    END
+  END io_out[1]
+  PIN io_out[2]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 66.000 37.140 70.000 38.340 ;
+    END
+  END io_out[2]
+  PIN io_out[3]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 30.340 4.000 31.540 ;
+    END
+  END io_out[3]
+  PIN io_out[4]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 54.690 66.000 55.250 70.000 ;
+    END
+  END io_out[4]
+  PIN io_out[5]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 28.930 0.000 29.490 4.000 ;
+    END
+  END io_out[5]
+  PIN io_out[6]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 47.340 4.000 48.540 ;
+    END
+  END io_out[6]
+  PIN io_out[7]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met2 ;
+        RECT 6.390 66.000 6.950 70.000 ;
+    END
+  END io_out[7]
+  PIN vccd1
+    DIRECTION INPUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 14.550 10.640 16.150 57.360 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 34.200 10.640 35.800 57.360 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 53.855 10.640 55.455 57.360 ;
+    END
+  END vccd1
+  PIN vssd1
+    DIRECTION INPUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 24.370 10.640 25.970 57.360 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 44.025 10.640 45.625 57.360 ;
+    END
+  END vssd1
+  PIN wb_clk_i
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 66.000 20.140 70.000 21.340 ;
+    END
+  END wb_clk_i
+  OBS
+      LAYER li1 ;
+        RECT 5.520 10.795 64.400 57.205 ;
+      LAYER met1 ;
+        RECT 5.520 10.640 64.400 57.360 ;
+      LAYER met2 ;
+        RECT 7.230 65.720 22.210 66.000 ;
+        RECT 23.330 65.720 38.310 66.000 ;
+        RECT 39.430 65.720 54.410 66.000 ;
+        RECT 55.530 65.720 61.090 66.000 ;
+        RECT 6.540 4.280 61.090 65.720 ;
+        RECT 6.540 3.555 12.550 4.280 ;
+        RECT 13.670 3.555 28.650 4.280 ;
+        RECT 29.770 3.555 44.750 4.280 ;
+        RECT 45.870 3.555 60.850 4.280 ;
+      LAYER met3 ;
+        RECT 4.000 55.740 66.000 57.285 ;
+        RECT 4.000 53.740 65.600 55.740 ;
+        RECT 4.000 48.940 66.000 53.740 ;
+        RECT 4.400 46.940 66.000 48.940 ;
+        RECT 4.000 38.740 66.000 46.940 ;
+        RECT 4.000 36.740 65.600 38.740 ;
+        RECT 4.000 31.940 66.000 36.740 ;
+        RECT 4.400 29.940 66.000 31.940 ;
+        RECT 4.000 21.740 66.000 29.940 ;
+        RECT 4.000 19.740 65.600 21.740 ;
+        RECT 4.000 14.940 66.000 19.740 ;
+        RECT 4.400 12.940 66.000 14.940 ;
+        RECT 4.000 4.740 66.000 12.940 ;
+        RECT 4.000 3.575 65.600 4.740 ;
+      LAYER met4 ;
+        RECT 16.550 10.640 23.970 57.360 ;
+        RECT 26.370 10.640 33.800 57.360 ;
+        RECT 36.200 10.640 43.625 57.360 ;
+        RECT 46.025 10.640 53.455 57.360 ;
+  END
+END wrapped_icestudio_test
+END LIBRARY
+
