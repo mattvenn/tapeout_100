@@ -8,8 +8,8 @@ proj_name = "scan_wrapper_lesson_1"
 def create_macro():
     start_x = 300
     start_y = 300
-    step_x  = 200
-    step_y  = 200
+    step_x  = 140
+    step_y  = 140 # pdn pitch is 70
     rows = 10
     cols = 10
 

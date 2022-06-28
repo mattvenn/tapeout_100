@@ -34,8 +34,8 @@ set ::env(DESIGN_NAME) user_project_wrapper
 set ::env(GND_NETS) {vssd1}
 set ::env(VDD_NETS) {vccd1}
 
-set ::env(FP_PDN_VPITCH) 70
-set ::env(FP_PDN_HPITCH) 70
+set ::env(FP_PDN_VPITCH) 40
+set ::env(FP_PDN_HPITCH) 40
 
 # "fix" LVS issue FIXME!
 set ::env(LVS_CONNECT_BY_LABEL) 1
@@ -78,19 +78,19 @@ source user_project_wrapper/extra_lef_gds.tcl
 
 
 # these get generated - if a project specifies obstruction in the info.yaml
-source user_project_wrapper/obstruction.tcl
+#source user_project_wrapper/obstruction.tcl
 
-set ::env(GLB_RT_ALLOW_CONGESTION) "1"
+#set ::env(GLB_RT_ALLOW_CONGESTION) "1"
 
 #Reduction in the routing capacity of the edges between the cells in the global routing graph. Values range from 0 to 1.
 #1 = most reduction, 0 = least reduction 
-set ::env(GLB_RT_ADJUSTMENT) 0.70
+#set ::env(GLB_RT_ADJUSTMENT) 0.70
 
 # per layer adjustment
 # 0 -> 1: 1 means don't use the layer                                                        
 # l2 is met1                                                                                 
-set ::env(GLB_RT_L2_ADJUSTMENT) 0.9
-set ::env(GLB_RT_L3_ADJUSTMENT) 0.7
+#set ::env(GLB_RT_L2_ADJUSTMENT) 0.9
+#set ::env(GLB_RT_L3_ADJUSTMENT) 0.7
 
 # use 8 cores
 set ::env(ROUTING_CORES) 8
