@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import shutil
 
 # where are things
@@ -7,8 +8,8 @@ proj_name = "scan_wrapper_lesson_1"
 def create_macro():
     start_x = 300
     start_y = 300
-    step_x  = 130
-    step_y  = 130
+    step_x  = 200
+    step_y  = 200
     rows = 10
     cols = 10
 
@@ -28,18 +29,24 @@ def create_macro():
 def instanciate(num_macros):
     assigns = """
     localparam NUM_MACROS = %d;
-    wire [NUM_MACROS:0] data;
-    assign mprj_io[9] = data[0];
-    assign mprj_io[12] = data[NUM_MACROS];
+    wire [NUM_MACROS:0] data, scan, latch, clk;
+    assign clk[0] = mprj_io[8];
+    assign data[0] = mprj_io[9];
+    assign scan[0] = mprj_io[10];
+    assign latch[0] = mprj_io[11];
+    assign mprj_io[11] = data[NUM_MACROS];
     """
 
     template = """
     scan_wrapper_lesson_1 #(.NUM_IOS(8)) instance_%d (
-        .clk            (mprj_io[8]),
-        .data_in        (data[%d]),
-        .scan_select    (mprj_io[10]),
-        .latch_enable   (mprj_io[11]),
-        .data_out       (data[%d])
+        .clk_in          (clk  [%d]),
+        .data_in         (data [%d]),
+        .scan_select_in  (scan [%d]),
+        .latch_enable_in (latch[%d]),
+        .clk_out         (clk  [%d]),
+        .data_out        (data [%d]),
+        .scan_select_out (scan [%d]),
+        .latch_enable_out(latch[%d])
         );
     """
     with open('upw_pre.v') as fh:
@@ -53,7 +60,7 @@ def instanciate(num_macros):
         fh.write(assigns % num_macros)
         for number in range(num_macros):
             # instantiate template
-            instance = template % (number, number, number+1)
+            instance = template % (number, number, number, number, number, number+1, number+1, number+1, number+1)
             fh.write(instance)
         fh.write(post) 
 
