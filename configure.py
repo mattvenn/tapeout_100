@@ -7,8 +7,8 @@ proj_name = "scan_wrapper_lesson_1"
 def create_macro():
     start_x = 300
     start_y = 300
-    step_x  = 120
-    step_y  = 120
+    step_x  = 130
+    step_y  = 130
     rows = 10
     cols = 10
 

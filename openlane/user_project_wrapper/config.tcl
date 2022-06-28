@@ -96,7 +96,7 @@ set ::env(GLB_RT_L3_ADJUSTMENT) 0.7
 set ::env(ROUTING_CORES) 8
 
 # bail early on problems
-set ::env(DRT_OPT_ITERS) 30
+#set ::env(DRT_OPT_ITERS) 30
 
 # set ::env(GLB_RT_MAXLAYER) 5
 set ::env(RT_MAX_LAYER) {met4}
