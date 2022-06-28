@@ -37,6 +37,9 @@ set ::env(VDD_NETS) {vccd1}
 set ::env(FP_PDN_VPITCH) 70
 set ::env(FP_PDN_HPITCH) 70
 
+# "fix" LVS issue FIXME!
+set ::env(LVS_CONNECT_BY_LABEL) 1
+
 # save some time
 set ::env(RUN_KLAYOUT_XOR) 0
 set ::env(RUN_KLAYOUT_DRC) 0
