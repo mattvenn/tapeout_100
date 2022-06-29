@@ -10,8 +10,8 @@ def create_macro():
     start_y = 350
     step_x  = 135
     step_y  = 135 # pdn pitch is 70
-    rows = 10
-    cols = 10
+    rows = 23
+    cols = 17
 
     num_macros = 0
 
