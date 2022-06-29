@@ -6,12 +6,12 @@ proj_name = "scan_wrapper_lesson_1"
 
 # create macro file & positions
 def create_macro():
-    start_x = 350
-    start_y = 350
+    start_x = 350 - 135 * 2
+    start_y = 350 - 135 * 2 
     step_x  = 135
     step_y  = 135 # pdn pitch is 70
-    rows = 23
-    cols = 17
+    rows = 25
+    cols = 20
 
     num_macros = 0
 
