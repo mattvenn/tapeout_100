@@ -85,11 +85,11 @@ module user_project_wrapper #(
 
     localparam NUM_MACROS = 100;
     wire [NUM_MACROS:0] data, scan, latch, clk;
-    assign clk[0] = mprj_io[8];
-    assign data[0] = mprj_io[9];
-    assign scan[0] = mprj_io[10];
-    assign latch[0] = mprj_io[11];
-    assign mprj_io[11] = data[NUM_MACROS];
+    assign clk[0] = io_in[8];
+    assign data[0] = io_in[9];
+    assign scan[0] = io_in[10];
+    assign latch[0] = io_in[11];
+    assign io_out[11] = data[NUM_MACROS];
     
     scan_wrapper_lesson_1 #(.NUM_IOS(8)) instance_0 (
         .clk_in          (clk  [0]),

@@ -6,10 +6,10 @@ proj_name = "scan_wrapper_lesson_1"
 
 # create macro file & positions
 def create_macro():
-    start_x = 300
-    start_y = 300
-    step_x  = 140
-    step_y  = 140 # pdn pitch is 70
+    start_x = 350
+    start_y = 350
+    step_x  = 135
+    step_y  = 135 # pdn pitch is 70
     rows = 10
     cols = 10
 
@@ -30,11 +30,11 @@ def instanciate(num_macros):
     assigns = """
     localparam NUM_MACROS = %d;
     wire [NUM_MACROS:0] data, scan, latch, clk;
-    assign clk[0] = mprj_io[8];
-    assign data[0] = mprj_io[9];
-    assign scan[0] = mprj_io[10];
-    assign latch[0] = mprj_io[11];
-    assign mprj_io[11] = data[NUM_MACROS];
+    assign clk[0] = io_in[8];
+    assign data[0] = io_in[9];
+    assign scan[0] = io_in[10];
+    assign latch[0] = io_in[11];
+    assign io_out[11] = data[NUM_MACROS];
     """
 
     template = """
