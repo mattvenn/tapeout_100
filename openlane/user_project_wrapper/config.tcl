@@ -34,8 +34,8 @@ set ::env(DESIGN_NAME) user_project_wrapper
 set ::env(GND_NETS) {vssd1}
 set ::env(VDD_NETS) {vccd1}
 
-set ::env(FP_PDN_VPITCH) 40
-set ::env(FP_PDN_HPITCH) 40
+set ::env(FP_PDN_VPITCH) 60
+set ::env(FP_PDN_HPITCH) 60
 
 # "fix" LVS issue FIXME!
 set ::env(LVS_CONNECT_BY_LABEL) 1
@@ -55,15 +55,14 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/user_project_wrapper.v"
 
 ## Clock configurations
-set ::env(CLOCK_PORT) "user_clock2"
-set ::env(CLOCK_NET) "mprj.clk"
+set ::env(CLOCK_PORT) "wb_clk_i"
 
-set ::env(CLOCK_PERIOD) "10"
+set ::env(CLOCK_PERIOD) "100"
 
 ## Internal Macros
 ### Macro PDN Connections
-set ::env(FP_PDN_MACRO_HOOKS) "\
-	mprj vccd1 vssd1"
+#set ::env(FP_PDN_MACRO_HOOKS) "\
+#	mprj vccd1 vssd1"
 
 ### Macro Placement
 set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
