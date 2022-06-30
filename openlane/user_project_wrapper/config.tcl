@@ -43,10 +43,10 @@ set ::env(LVS_CONNECT_BY_LABEL) 1
 # save some time
 set ::env(RUN_KLAYOUT_XOR) 0
 set ::env(RUN_KLAYOUT_DRC) 0
-# no point in running DRC with magic once openram is in because it will find 3M issues
-# try to turn off all DRC checking so the flow completes and use precheck for DRC instead.
-#set ::env(MAGIC_DRC_USE_GDS) 0
-#set ::env(RUN_MAGIC_DRC) 0
+
+# save some more time while debugging
+set ::env(MAGIC_DRC_USE_GDS) 0
+set ::env(RUN_MAGIC_DRC) 0
 #set ::env(QUIT_ON_MAGIC_DRC) 0
 
 ## Source Verilog Files

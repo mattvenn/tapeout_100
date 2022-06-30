@@ -5,6 +5,15 @@
 + scan_select_in scan_select_out vccd1 vssd1
 .ends
 
+* Black-box entry subcircuit for scan_controller abstract view
+.subckt scan_controller active_select[0] active_select[1] active_select[2] active_select[3]
++ active_select[4] active_select[5] active_select[6] active_select[7] active_select[8]
++ clk inputs[0] inputs[1] inputs[2] inputs[3] inputs[4] inputs[5] inputs[6] inputs[7]
++ oeb[0] oeb[1] oeb[2] oeb[3] oeb[4] oeb[5] oeb[6] oeb[7] oeb[8] outputs[0] outputs[1]
++ outputs[2] outputs[3] outputs[4] outputs[5] outputs[6] outputs[7] ready reset scan_clk
++ scan_data_in scan_data_out scan_latch_enable scan_select vccd1 vssd1
+.ends
+
 .subckt user_project_wrapper analog_io[0] analog_io[10] analog_io[11] analog_io[12]
 + analog_io[13] analog_io[14] analog_io[15] analog_io[16] analog_io[17] analog_io[18]
 + analog_io[19] analog_io[1] analog_io[20] analog_io[21] analog_io[22] analog_io[23]
@@ -571,9 +580,9 @@ Xinstance_282 instance_282/clk_in instance_283/clk_in instance_282/data_in insta
 Xinstance_293 instance_293/clk_in instance_294/clk_in instance_293/data_in instance_294/data_in
 + instance_293/latch_enable_in instance_294/latch_enable_in instance_293/scan_select_in
 + instance_294/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
-Xinstance_497 instance_497/clk_in instance_498/clk_in instance_497/data_in instance_498/data_in
-+ instance_497/latch_enable_in instance_498/latch_enable_in instance_497/scan_select_in
-+ instance_498/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
+Xinstance_497 instance_497/clk_in instance_497/clk_out instance_497/data_in instance_497/data_out
++ instance_497/latch_enable_in instance_497/latch_enable_out instance_497/scan_select_in
++ instance_497/scan_select_out vccd1 vssd1 scan_wrapper_lesson_1
 Xinstance_486 instance_486/clk_in instance_487/clk_in instance_486/data_in instance_487/data_in
 + instance_486/latch_enable_in instance_487/latch_enable_in instance_486/scan_select_in
 + instance_487/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
@@ -610,9 +619,6 @@ Xinstance_283 instance_283/clk_in instance_284/clk_in instance_283/data_in insta
 Xinstance_294 instance_294/clk_in instance_295/clk_in instance_294/data_in instance_295/data_in
 + instance_294/latch_enable_in instance_295/latch_enable_in instance_294/scan_select_in
 + instance_295/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
-Xinstance_498 instance_498/clk_in instance_499/clk_in instance_498/data_in instance_499/data_in
-+ instance_498/latch_enable_in instance_499/latch_enable_in instance_498/scan_select_in
-+ instance_499/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
 Xinstance_487 instance_487/clk_in instance_488/clk_in instance_487/data_in instance_488/data_in
 + instance_487/latch_enable_in instance_488/latch_enable_in instance_487/scan_select_in
 + instance_488/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
@@ -658,9 +664,6 @@ Xinstance_284 instance_284/clk_in instance_285/clk_in instance_284/data_in insta
 Xinstance_295 instance_295/clk_in instance_296/clk_in instance_295/data_in instance_296/data_in
 + instance_295/latch_enable_in instance_296/latch_enable_in instance_295/scan_select_in
 + instance_296/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
-Xinstance_499 instance_499/clk_in instance_499/clk_out instance_499/data_in io_out[11]
-+ instance_499/latch_enable_in instance_499/latch_enable_out instance_499/scan_select_in
-+ instance_499/scan_select_out vccd1 vssd1 scan_wrapper_lesson_1
 Xinstance_488 instance_488/clk_in instance_489/clk_in instance_488/data_in instance_489/data_in
 + instance_488/latch_enable_in instance_489/latch_enable_in instance_488/scan_select_in
 + instance_489/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
@@ -775,8 +778,9 @@ Xinstance_286 instance_286/clk_in instance_287/clk_in instance_286/data_in insta
 Xinstance_297 instance_297/clk_in instance_298/clk_in instance_297/data_in instance_298/data_in
 + instance_297/latch_enable_in instance_298/latch_enable_in instance_297/scan_select_in
 + instance_298/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
-Xinstance_0 io_in[8] instance_1/clk_in io_in[9] instance_1/data_in io_in[11] instance_1/latch_enable_in
-+ io_in[10] instance_1/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
+Xinstance_0 instance_0/clk_in instance_1/clk_in instance_0/data_in instance_1/data_in
++ instance_0/latch_enable_in instance_1/latch_enable_in instance_0/scan_select_in
++ instance_1/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
 Xinstance_479 instance_479/clk_in instance_480/clk_in instance_479/data_in instance_480/data_in
 + instance_479/latch_enable_in instance_480/latch_enable_in instance_479/scan_select_in
 + instance_480/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
@@ -930,9 +934,6 @@ Xinstance_415 instance_415/clk_in instance_416/clk_in instance_415/data_in insta
 Xinstance_404 instance_404/clk_in instance_405/clk_in instance_404/data_in instance_405/data_in
 + instance_404/latch_enable_in instance_405/latch_enable_in instance_404/scan_select_in
 + instance_405/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
-Xinstance_95 instance_95/clk_in instance_96/clk_in instance_95/data_in instance_96/data_in
-+ instance_95/latch_enable_in instance_96/latch_enable_in instance_95/scan_select_in
-+ instance_96/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
 Xinstance_84 instance_84/clk_in instance_85/clk_in instance_84/data_in instance_85/data_in
 + instance_84/latch_enable_in instance_85/latch_enable_in instance_84/scan_select_in
 + instance_85/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
@@ -948,6 +949,9 @@ Xinstance_51 instance_51/clk_in instance_52/clk_in instance_51/data_in instance_
 Xinstance_40 instance_40/clk_in instance_41/clk_in instance_40/data_in instance_41/data_in
 + instance_40/latch_enable_in instance_41/latch_enable_in instance_40/scan_select_in
 + instance_41/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
+Xinstance_95 instance_95/clk_in instance_96/clk_in instance_95/data_in instance_96/data_in
++ instance_95/latch_enable_in instance_96/latch_enable_in instance_95/scan_select_in
++ instance_96/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
 Xinstance_201 instance_201/clk_in instance_202/clk_in instance_201/data_in instance_202/data_in
 + instance_201/latch_enable_in instance_202/latch_enable_in instance_201/scan_select_in
 + instance_202/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
@@ -1383,6 +1387,9 @@ Xinstance_17 instance_17/clk_in instance_18/clk_in instance_17/data_in instance_
 Xinstance_394 instance_394/clk_in instance_395/clk_in instance_394/data_in instance_395/data_in
 + instance_394/latch_enable_in instance_395/latch_enable_in instance_394/scan_select_in
 + instance_395/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
+Xinstance_383 instance_383/clk_in instance_384/clk_in instance_383/data_in instance_384/data_in
++ instance_383/latch_enable_in instance_384/latch_enable_in instance_383/scan_select_in
++ instance_384/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
 Xinstance_350 instance_350/clk_in instance_351/clk_in instance_350/data_in instance_351/data_in
 + instance_350/latch_enable_in instance_351/latch_enable_in instance_350/scan_select_in
 + instance_351/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
@@ -1392,9 +1399,6 @@ Xinstance_361 instance_361/clk_in instance_362/clk_in instance_361/data_in insta
 Xinstance_372 instance_372/clk_in instance_373/clk_in instance_372/data_in instance_373/data_in
 + instance_372/latch_enable_in instance_373/latch_enable_in instance_372/scan_select_in
 + instance_373/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
-Xinstance_383 instance_383/clk_in instance_384/clk_in instance_383/data_in instance_384/data_in
-+ instance_383/latch_enable_in instance_384/latch_enable_in instance_383/scan_select_in
-+ instance_384/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
 Xinstance_180 instance_180/clk_in instance_181/clk_in instance_180/data_in instance_181/data_in
 + instance_180/latch_enable_in instance_181/latch_enable_in instance_180/scan_select_in
 + instance_181/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
@@ -1434,6 +1438,13 @@ Xinstance_181 instance_181/clk_in instance_182/clk_in instance_181/data_in insta
 Xinstance_192 instance_192/clk_in instance_193/clk_in instance_192/data_in instance_193/data_in
 + instance_192/latch_enable_in instance_193/latch_enable_in instance_192/scan_select_in
 + instance_193/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1
+Xscan_controller io_in[12] io_in[13] io_in[14] io_in[15] io_in[16] io_in[17] io_in[18]
++ io_in[19] io_in[20] wb_clk_i io_in[21] io_in[22] io_in[23] io_in[24] io_in[25] io_in[26]
++ io_in[27] io_in[28] io_oeb[29] io_oeb[30] io_oeb[31] io_oeb[32] io_oeb[33] io_oeb[34]
++ io_oeb[35] io_oeb[36] io_oeb[37] io_out[29] io_out[30] io_out[31] io_out[32] io_out[33]
++ io_out[34] io_out[35] io_out[36] io_out[37] wb_rst_i instance_0/clk_in instance_497/data_out
++ instance_0/data_in instance_0/latch_enable_in instance_0/scan_select_in vccd1 vssd1
++ scan_controller
 Xinstance_19 instance_19/clk_in instance_20/clk_in instance_19/data_in instance_20/data_in
 + instance_19/latch_enable_in instance_20/latch_enable_in instance_19/scan_select_in
 + instance_20/scan_select_in vccd1 vssd1 scan_wrapper_lesson_1

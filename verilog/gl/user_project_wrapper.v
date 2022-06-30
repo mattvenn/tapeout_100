@@ -41,7 +41,8 @@ module user_project_wrapper (user_clock2,
  output [31:0] wbs_dat_o;
  input [3:0] wbs_sel_i;
 
- wire \data[500] ;
+ wire ready;
+ wire \clk[0] ;
  wire \clk[100] ;
  wire \clk[101] ;
  wire \clk[102] ;
@@ -483,10 +484,8 @@ module user_project_wrapper (user_clock2,
  wire \clk[496] ;
  wire \clk[497] ;
  wire \clk[498] ;
- wire \clk[499] ;
  wire \clk[49] ;
  wire \clk[4] ;
- wire \clk[500] ;
  wire \clk[50] ;
  wire \clk[51] ;
  wire \clk[52] ;
@@ -542,6 +541,7 @@ module user_project_wrapper (user_clock2,
  wire \clk[98] ;
  wire \clk[99] ;
  wire \clk[9] ;
+ wire \data[0] ;
  wire \data[100] ;
  wire \data[101] ;
  wire \data[102] ;
@@ -983,7 +983,6 @@ module user_project_wrapper (user_clock2,
  wire \data[496] ;
  wire \data[497] ;
  wire \data[498] ;
- wire \data[499] ;
  wire \data[49] ;
  wire \data[4] ;
  wire \data[50] ;
@@ -1041,6 +1040,7 @@ module user_project_wrapper (user_clock2,
  wire \data[98] ;
  wire \data[99] ;
  wire \data[9] ;
+ wire \latch[0] ;
  wire \latch[100] ;
  wire \latch[101] ;
  wire \latch[102] ;
@@ -1482,10 +1482,8 @@ module user_project_wrapper (user_clock2,
  wire \latch[496] ;
  wire \latch[497] ;
  wire \latch[498] ;
- wire \latch[499] ;
  wire \latch[49] ;
  wire \latch[4] ;
- wire \latch[500] ;
  wire \latch[50] ;
  wire \latch[51] ;
  wire \latch[52] ;
@@ -1541,6 +1539,7 @@ module user_project_wrapper (user_clock2,
  wire \latch[98] ;
  wire \latch[99] ;
  wire \latch[9] ;
+ wire \scan[0] ;
  wire \scan[100] ;
  wire \scan[101] ;
  wire \scan[102] ;
@@ -1982,10 +1981,8 @@ module user_project_wrapper (user_clock2,
  wire \scan[496] ;
  wire \scan[497] ;
  wire \scan[498] ;
- wire \scan[499] ;
  wire \scan[49] ;
  wire \scan[4] ;
- wire \scan[500] ;
  wire \scan[50] ;
  wire \scan[51] ;
  wire \scan[52] ;
@@ -2042,13 +2039,13 @@ module user_project_wrapper (user_clock2,
  wire \scan[99] ;
  wire \scan[9] ;
 
- scan_wrapper_lesson_1 instance_0 (.clk_in(io_in[8]),
+ scan_wrapper_lesson_1 instance_0 (.clk_in(\clk[0] ),
     .clk_out(\clk[1] ),
-    .data_in(io_in[9]),
+    .data_in(\data[0] ),
     .data_out(\data[1] ),
-    .latch_enable_in(io_in[11]),
+    .latch_enable_in(\latch[0] ),
     .latch_enable_out(\latch[1] ),
-    .scan_select_in(io_in[10]),
+    .scan_select_in(\scan[0] ),
     .scan_select_out(\scan[1] ),
     .vccd1(vccd1),
     .vssd1(vssd1));
@@ -6472,26 +6469,6 @@ module user_project_wrapper (user_clock2,
     .scan_select_out(\scan[498] ),
     .vccd1(vccd1),
     .vssd1(vssd1));
- scan_wrapper_lesson_1 instance_498 (.clk_in(\clk[498] ),
-    .clk_out(\clk[499] ),
-    .data_in(\data[498] ),
-    .data_out(\data[499] ),
-    .latch_enable_in(\latch[498] ),
-    .latch_enable_out(\latch[499] ),
-    .scan_select_in(\scan[498] ),
-    .scan_select_out(\scan[499] ),
-    .vccd1(vccd1),
-    .vssd1(vssd1));
- scan_wrapper_lesson_1 instance_499 (.clk_in(\clk[499] ),
-    .clk_out(\clk[500] ),
-    .data_in(\data[499] ),
-    .data_out(\data[500] ),
-    .latch_enable_in(\latch[499] ),
-    .latch_enable_out(\latch[500] ),
-    .scan_select_in(\scan[499] ),
-    .scan_select_out(\scan[500] ),
-    .vccd1(vccd1),
-    .vssd1(vssd1));
  scan_wrapper_lesson_1 instance_5 (.clk_in(\clk[5] ),
     .clk_out(\clk[6] ),
     .data_in(\data[5] ),
@@ -7042,5 +7019,49 @@ module user_project_wrapper (user_clock2,
     .scan_select_out(\scan[100] ),
     .vccd1(vccd1),
     .vssd1(vssd1));
- assign io_out[11] = \data[500] ;
+ scan_controller scan_controller (.clk(wb_clk_i),
+    .ready(ready),
+    .reset(wb_rst_i),
+    .scan_clk(\clk[0] ),
+    .scan_data_in(\data[498] ),
+    .scan_data_out(\data[0] ),
+    .scan_latch_enable(\latch[0] ),
+    .scan_select(\scan[0] ),
+    .vccd1(vccd1),
+    .vssd1(vssd1),
+    .active_select({io_in[20],
+    io_in[19],
+    io_in[18],
+    io_in[17],
+    io_in[16],
+    io_in[15],
+    io_in[14],
+    io_in[13],
+    io_in[12]}),
+    .inputs({io_in[28],
+    io_in[27],
+    io_in[26],
+    io_in[25],
+    io_in[24],
+    io_in[23],
+    io_in[22],
+    io_in[21]}),
+    .oeb({io_oeb[37],
+    io_oeb[36],
+    io_oeb[35],
+    io_oeb[34],
+    io_oeb[33],
+    io_oeb[32],
+    io_oeb[31],
+    io_oeb[30],
+    io_oeb[29]}),
+    .outputs({io_out[36],
+    io_out[35],
+    io_out[34],
+    io_out[33],
+    io_out[32],
+    io_out[31],
+    io_out[30],
+    io_out[29]}));
+ assign io_out[37] = ready;
 endmodule

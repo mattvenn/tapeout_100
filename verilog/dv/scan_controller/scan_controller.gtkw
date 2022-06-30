@@ -1,0 +1,44 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Thu Jun 30 14:32:59 2022
+[*]
+[dumpfile] "/home/matt/work/asic-workshop/shuttle6/tapeout_100/verilog/dv/scan_controller/scan_controller.vcd"
+[dumpfile_mtime] "Thu Jun 30 14:31:58 2022"
+[dumpfile_size] 372556
+[savefile] "/home/matt/work/asic-workshop/shuttle6/tapeout_100/verilog/dv/scan_controller/scan_controller.gtkw"
+[timestart] 0
+[size] 2093 1334
+[pos] -1 -1
+*-25.799999 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 343
+[signals_width] 354
+[sst_expanded] 1
+[sst_vpaned_height] 412
+@28
+scan_controller_tb.RSTB
+scan_controller_tb.USER_VDD1V8
+scan_controller_tb.USER_VDD3V3
+scan_controller_tb.VDD1V8
+scan_controller_tb.VDD3V3
+scan_controller_tb.VSS
+@22
+scan_controller_tb.active_select[8:0]
+@28
+scan_controller_tb.clk
+scan_controller_tb.flash_clk
+scan_controller_tb.flash_csb
+scan_controller_tb.flash_io0
+scan_controller_tb.flash_io1
+scan_controller_tb.gpio
+@22
+scan_controller_tb.inputs[7:0]
+scan_controller_tb.mprj_io[37:0]
+@28
+scan_controller_tb.outputs
+scan_controller_tb.power1
+scan_controller_tb.power2
+scan_controller_tb.power3
+scan_controller_tb.power4
+scan_controller_tb.ready
+[pattern_trace] 1
+[pattern_trace] 0

@@ -83,13 +83,30 @@ module user_project_wrapper #(
 
     // start of module instantiation
 
-    localparam NUM_MACROS = 500;
+    localparam NUM_MACROS = 498;
     wire [NUM_MACROS:0] data, scan, latch, clk;
-    assign clk[0] = io_in[8];
-    assign data[0] = io_in[9];
-    assign scan[0] = io_in[10];
-    assign latch[0] = io_in[11];
-    assign io_out[11] = data[NUM_MACROS];
+    wire [8:0] active_select = io_in[20:12];
+    wire [7:0] inputs = io_in[28:21];
+    wire [7:0] outputs;
+    assign io_out[36:29] = outputs;
+    wire ready;
+    assign io_out[37] = ready;
+    
+    scan_controller #(.NUM_DESIGNS(NUM_MACROS)) scan_controller(
+        .clk            (wb_clk_i),
+        .reset          (wb_rst_i),
+        .active_select  (active_select),
+        .inputs         (inputs),
+        .outputs        (outputs),
+        .ready          (ready),
+        .scan_clk       (clk[0]),
+        .scan_data_out  (data[0]),
+        .scan_data_in   (data[NUM_MACROS]),
+        .scan_select    (scan[0]),
+        .scan_latch_enable(latch[0]),
+        .oeb            (io_oeb[37:29])
+    );
+
     
     scan_wrapper_lesson_1 #(.NUM_IOS(8)) instance_0 (
         .clk_in          (clk  [0]),
@@ -5567,28 +5584,6 @@ module user_project_wrapper #(
         .data_out        (data [498]),
         .scan_select_out (scan [498]),
         .latch_enable_out(latch[498])
-        );
-    
-    scan_wrapper_lesson_1 #(.NUM_IOS(8)) instance_498 (
-        .clk_in          (clk  [498]),
-        .data_in         (data [498]),
-        .scan_select_in  (scan [498]),
-        .latch_enable_in (latch[498]),
-        .clk_out         (clk  [499]),
-        .data_out        (data [499]),
-        .scan_select_out (scan [499]),
-        .latch_enable_out(latch[499])
-        );
-    
-    scan_wrapper_lesson_1 #(.NUM_IOS(8)) instance_499 (
-        .clk_in          (clk  [499]),
-        .data_in         (data [499]),
-        .scan_select_in  (scan [499]),
-        .latch_enable_in (latch[499]),
-        .clk_out         (clk  [500]),
-        .data_out        (data [500]),
-        .scan_select_out (scan [500]),
-        .latch_enable_out(latch[500])
         );
         // end of module instantiation
 

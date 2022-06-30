@@ -54,7 +54,8 @@ def instanciate(num_macros):
         .scan_data_out  (data[0]),
         .scan_data_in   (data[NUM_MACROS]),
         .scan_select    (scan[0]),
-        .scan_latch_enable(latch[0])
+        .scan_latch_enable(latch[0]),
+        .oeb            (io_oeb[37:29])
     );
 
     """
