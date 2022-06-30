@@ -6,8 +6,8 @@ proj_name = "scan_wrapper_lesson_1"
 
 # create macro file & positions
 def create_macro():
-    start_x = 350 - 135 * 2
-    start_y = 350 - 135 * 2 
+    start_x = 80
+    start_y = 80
     step_x  = 135
     step_y  = 135 # pdn pitch is 70
     rows = 25
@@ -16,8 +16,12 @@ def create_macro():
     num_macros = 0
 
     with open("openlane/user_project_wrapper/macro.cfg", 'w') as fh:
+        fh.write("scan_controller 80 80 N\n")
         for row in range(rows):
             for col in range(cols):
+                # skip the space where the scan controller goes on the first row
+                if row == 0 and col <= 1:
+                    continue
                 instance = "instance_%d %d %d N\n" % (num_macros, start_x + col * step_x, start_y + row * step_y)
                 fh.write(instance)
 
@@ -30,14 +34,31 @@ def instanciate(num_macros):
     assigns = """
     localparam NUM_MACROS = %d;
     wire [NUM_MACROS:0] data, scan, latch, clk;
-    assign clk[0] = io_in[8];
-    assign data[0] = io_in[9];
-    assign scan[0] = io_in[10];
-    assign latch[0] = io_in[11];
-    assign io_out[11] = data[NUM_MACROS];
+    wire [8:0] active_select = io_in[20:12];
+    wire [7:0] inputs = io_in[28:21];
+    wire [7:0] outputs;
+    assign io_out[36:29] = outputs;
+    wire ready;
+    assign io_out[37] = ready;
     """
 
-    template = """
+    scan_controller_template = """
+    scan_controller #(.NUM_DESIGNS(NUM_MACROS)) scan_controller(
+        .clk            (wb_clk_i),
+        .reset          (wb_rst_i),
+        .active_select  (active_select),
+        .inputs         (inputs),
+        .outputs        (outputs),
+        .ready          (ready),
+        .scan_clk       (clk[0]),
+        .scan_data_out  (data[0]),
+        .scan_data_in   (data[NUM_MACROS]),
+        .scan_select    (scan[0]),
+        .scan_latch_enable(latch[0])
+    );
+
+    """
+    lesson_template = """
     scan_wrapper_lesson_1 #(.NUM_IOS(8)) instance_%d (
         .clk_in          (clk  [%d]),
         .data_in         (data [%d]),
@@ -58,9 +79,10 @@ def instanciate(num_macros):
     with open('verilog/rtl/user_project_wrapper.v', 'w') as fh:
         fh.write(pre)
         fh.write(assigns % num_macros)
+        fh.write(scan_controller_template)
         for number in range(num_macros):
             # instantiate template
-            instance = template % (number, number, number, number, number, number+1, number+1, number+1, number+1)
+            instance = lesson_template % (number, number, number, number, number, number+1, number+1, number+1, number+1)
             fh.write(instance)
         fh.write(post) 
 
